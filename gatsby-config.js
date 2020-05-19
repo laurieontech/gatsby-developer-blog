@@ -1,4 +1,8 @@
 module.exports = {
+    siteMetadata: {
+        title: `Gatsby site`,
+        siteUrl: `https://example.com`
+    },
     plugins: [
         {
             resolve: `gatsby-source-filesystem`,
