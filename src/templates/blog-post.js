@@ -1,6 +1,7 @@
 import React from "react"
 import {graphql} from "gatsby"
-import Layout from '../components/layout'
+import Layout from "../components/layout"
+import Image from "gatsby-image"
 
 export const BlogPostTemplate =  ({data}) => {
     const post = data.markdownRemark
@@ -8,6 +9,10 @@ export const BlogPostTemplate =  ({data}) => {
     return (
         <Layout>
         <article>
+        <Image 
+        fluid={post.frontmatter.image.childImageSharp.fluid}
+        alt=''
+        />
         <h2>{post.frontmatter.title}</h2>
         <section dangerouslySetInnerHTML={{__html: post.html}}/>
         </article>
@@ -21,6 +26,13 @@ export const pageQuery = graphql`
             html
           frontmatter {
             title
+            image {
+                childImageSharp {
+                  fluid {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
+              }
           }
         }
       }
