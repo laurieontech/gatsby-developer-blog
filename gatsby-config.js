@@ -7,5 +7,9 @@ module.exports = {
                 name: `posts`
             }
         },
+        {
+            resolve: `gatsby-transformer-remark`,
+            options: {}
+        },
     ]
 }
