@@ -1,0 +1,11 @@
+{
+  "name": "gatsby-developer-blog",
+  "version": "1.0.0",
+  "description": "An SEO friendly developer blog",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Laurie Barth",
+  "license": "MIT"
+}
