@@ -3,9 +3,11 @@ import {graphql} from "gatsby"
 import Layout from "../components/layout"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
+import { MDXRenderer } from "gatsby-plugin-mdx"
+
 
 export const BlogPostTemplate =  ({data}) => {
-    const post = data.markdownRemark
+    const post = data.mdx
     const imageSrc = post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid.src : ''
 
     return (
@@ -17,7 +19,7 @@ export const BlogPostTemplate =  ({data}) => {
         alt=''
         />
         <h2>{post.frontmatter.title}</h2>
-        <section dangerouslySetInnerHTML={{__html: post.html}}/>
+        <MDXRenderer>{post.body}</MDXRenderer>
         </article>
         </Layout>
     )
@@ -25,8 +27,8 @@ export const BlogPostTemplate =  ({data}) => {
 
 export const pageQuery = graphql`
     query BlogPostById($id: String!) {
-        markdownRemark(id: { eq: $id }) {
-            html
+      mdx(id: { eq: $id }) {
+          body
           frontmatter {
             title
             image {

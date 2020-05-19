@@ -4,7 +4,7 @@ import {graphql, Link} from 'gatsby'
 
 
 export const HomePage = ({data}) => {
-    const posts = data.allMarkdownRemark.nodes
+    const posts = data.allMdx.nodes
     return (
     <Layout>
     {posts.map((post) => {
@@ -18,7 +18,7 @@ export const HomePage = ({data}) => {
 
 export const pageQuery = graphql`
 query { 
-    allMarkdownRemark(sort: { fields: [frontmatter___title], order: ASC }) {
+    allMdx(sort: { fields: [frontmatter___title], order: ASC }) {
     nodes {
         fields {
             slug

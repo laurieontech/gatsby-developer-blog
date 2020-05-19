@@ -12,9 +12,10 @@ module.exports = {
             }
         },
         {
-            resolve: `gatsby-transformer-remark`,
+            resolve: `gatsby-plugin-mdx`,
             options: {
-                plugins: [
+                extensions: [`.mdx`, `.md`],
+                gatsbyRemarkPlugins: [
                     `gatsby-remark-prismjs`
                 ]
             }
