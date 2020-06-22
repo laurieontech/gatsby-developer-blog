@@ -14,37 +14,37 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
   }
 
 
-exports.createPages= async ({graphql, actions, reporter}) => {
-    const {createPage} = actions
+// exports.createPages= async ({graphql, actions, reporter}) => {
+//     const {createPage} = actions
 
-    const BlogPostTemplate = require.resolve(`./src/templates/blog-post.js`)
-    const result = await graphql(`
-    {
-        allMdx{
-            nodes {
-              id
-              fields {
-                slug
-              }
-            }
-          }
-    }
-    `)
+//     const BlogPostTemplate = require.resolve(`./src/templates/blog-post.js`)
+//     const result = await graphql(`
+//     {
+//         allMdx{
+//             nodes {
+//               id
+//               fields {
+//                 slug
+//               }
+//             }
+//           }
+//     }
+//     `)
 
-    if (result.errors) {
-        reporter.panic(result.errors)
-    }
+//     if (result.errors) {
+//         reporter.panic(result.errors)
+//     }
 
-    const posts = result.data.allMdx.nodes
+//     const posts = result.data.allMdx.nodes
 
-    posts.forEach((post) => {
-        createPage({
-            path: post.fields.slug,
-            component: BlogPostTemplate,
-            context: {
-                id: post.id
-            }
-        })
-    })
+//     posts.forEach((post) => {
+//         createPage({
+//             path: post.fields.slug,
+//             component: BlogPostTemplate,
+//             context: {
+//                 id: post.id
+//             }
+//         })
+//     })
 
-}
+// }

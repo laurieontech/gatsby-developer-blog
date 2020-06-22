@@ -1,12 +1,12 @@
 import React from "react"
-import {graphql} from "gatsby"
+import {createPagesFromData, graphql} from "gatsby"
 import Layout from "../components/layout"
 import Image from "gatsby-image"
 import SEO from "../components/seo"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 
 
-export const BlogPostTemplate =  ({data}) => {
+const BlogPostTemplate =  ({data}) => {
     const post = data.mdx
     const imageSrc = post.frontmatter.image ? post.frontmatter.image.childImageSharp.fluid.src : ''
 
@@ -25,9 +25,11 @@ export const BlogPostTemplate =  ({data}) => {
     )
 }
 
+export default createPagesFromData(BlogPostTemplate, `allMdx`)
+
 export const pageQuery = graphql`
-    query BlogPostById($id: String!) {
-      mdx(id: { eq: $id }) {
+    query BlogPostById($fields__slug: String!) {
+      mdx(fields: { slug: { eq: $fields__slug } }) {
           body
           frontmatter {
             title
@@ -43,5 +45,4 @@ export const pageQuery = graphql`
       }
 `
 
-export default BlogPostTemplate
 
