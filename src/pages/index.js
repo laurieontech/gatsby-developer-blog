@@ -1,14 +1,15 @@
+  
 import React from 'react'
 import Layout from '../components/layout'
 import {graphql, Link} from 'gatsby'
 
 
 export const HomePage = ({data}) => {
-    const posts = data.allMarkdownRemark.nodes
+    const posts = data.allMdx.nodes
     return (
     <Layout>
     {posts.map((post) => {
-        return (<Link to={post.fields.slug} key={post.fields.slug}>
+        return (<Link to={post.path} key={post.path}>
         <h2>{post.frontmatter.title}</h2>
         </Link>
         )
@@ -18,11 +19,9 @@ export const HomePage = ({data}) => {
 
 export const pageQuery = graphql`
 query { 
-    allMarkdownRemark(sort: { fields: [frontmatter___title], order: ASC }) {
+    allMdx(sort: { fields: [frontmatter___title], order: ASC }) {
     nodes {
-        fields {
-            slug
-        }
+        path(filePath: "{frontmatter__title}")
         frontmatter {
           title
         }
