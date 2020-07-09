@@ -8,7 +8,8 @@ export const HomePage = ({data}) => {
     return (
     <Layout>
     {posts.map((post) => {
-        return (<Link to={post.fields.slug} key={post.fields.slug}>
+        return (
+        <Link to={post.path} key={post.path}>
         <h2>{post.frontmatter.title}</h2>
         </Link>
         )
@@ -20,9 +21,7 @@ export const pageQuery = graphql`
 query { 
     allMdx(sort: { fields: [frontmatter___title], order: ASC }) {
     nodes {
-        fields {
-            slug
-        }
+        path(filePath: "{frontmatter__title}")
         frontmatter {
           title
         }

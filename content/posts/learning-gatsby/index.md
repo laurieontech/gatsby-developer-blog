@@ -1,5 +1,6 @@
 ---
-title: Learning about Gatsby
+title: Learning about Gatsby!
+date: 2020-07-08
 image: ./gatsby-banner.png
 ---
 
