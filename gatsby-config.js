@@ -8,8 +8,10 @@ module.exports = {
             }
         },
         {
-            resolve: `gatsby-transformer-remark`,
-            options: {}
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                extensions: [`.mdx`, `.md`],
+            }
         },
     ]
 }
