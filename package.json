@@ -9,9 +9,7 @@
   "author": "Laurie Barth",
   "license": "MIT",
   "dependencies": {
-    "@mdx-js/mdx": "^1.6.6",
-    "@mdx-js/react": "^1.6.6",
-    "gatsby": "2.20.24-unifiedroutes.93",
+    "gatsby": "^2.21.39",
     "gatsby-plugin-mdx": "^1.2.25",
     "gatsby-source-filesystem": "^2.3.4",
     "react": "^16.13.1",
