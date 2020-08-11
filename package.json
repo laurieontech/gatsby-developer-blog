@@ -10,8 +10,8 @@
   "license": "MIT",
   "dependencies": {
     "gatsby": "^2.21.39",
+    "gatsby-plugin-mdx": "^1.2.25",
     "gatsby-source-filesystem": "^2.3.4",
-    "gatsby-transformer-remark": "^2.8.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
